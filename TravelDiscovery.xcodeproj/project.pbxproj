@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F941181227C7C52C00C9CEB0 /* PopularDestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181127C7C52C00C9CEB0 /* PopularDestinationsView.swift */; };
+		F941181427C7C66000C9CEB0 /* PopularRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181327C7C66000C9CEB0 /* PopularRestaurantsView.swift */; };
+		F941181627C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181527C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift */; };
+		F941181827C7C7DF00C9CEB0 /* TrendingCreatorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181727C7C7DF00C9CEB0 /* TrendingCreatorsView.swift */; };
+		F941181B27C7C85500C9CEB0 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181A27C7C85500C9CEB0 /* Destination.swift */; };
+		F941181D27C7C87600C9CEB0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181C27C7C87600C9CEB0 /* Restaurant.swift */; };
+		F941181F27C7C88400C9CEB0 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941181E27C7C88400C9CEB0 /* Creator.swift */; };
+		F941182127C7C89B00C9CEB0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941182027C7C89B00C9CEB0 /* Category.swift */; };
 		F98DEC7827C761CF00A1BD7B /* TravelDiscoveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC7727C761CF00A1BD7B /* TravelDiscoveryApp.swift */; };
-		F98DEC7A27C761CF00A1BD7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC7927C761CF00A1BD7B /* ContentView.swift */; };
+		F98DEC7A27C761CF00A1BD7B /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC7927C761CF00A1BD7B /* DiscoverView.swift */; };
 		F98DEC7C27C761D000A1BD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98DEC7B27C761D000A1BD7B /* Assets.xcassets */; };
 		F98DEC7F27C761D000A1BD7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F98DEC7E27C761D000A1BD7B /* Preview Assets.xcassets */; };
 		F98DEC8927C761D000A1BD7B /* TravelDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC8827C761D000A1BD7B /* TravelDiscoveryTests.swift */; };
@@ -34,9 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F941181127C7C52C00C9CEB0 /* PopularDestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestinationsView.swift; sourceTree = "<group>"; };
+		F941181327C7C66000C9CEB0 /* PopularRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRestaurantsView.swift; sourceTree = "<group>"; };
+		F941181527C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCategoriesView.swift; sourceTree = "<group>"; };
+		F941181727C7C7DF00C9CEB0 /* TrendingCreatorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCreatorsView.swift; sourceTree = "<group>"; };
+		F941181A27C7C85500C9CEB0 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		F941181C27C7C87600C9CEB0 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		F941181E27C7C88400C9CEB0 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
+		F941182027C7C89B00C9CEB0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F98DEC7427C761CF00A1BD7B /* TravelDiscovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelDiscovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98DEC7727C761CF00A1BD7B /* TravelDiscoveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDiscoveryApp.swift; sourceTree = "<group>"; };
-		F98DEC7927C761CF00A1BD7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F98DEC7927C761CF00A1BD7B /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		F98DEC7B27C761D000A1BD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F98DEC7E27C761D000A1BD7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F98DEC8427C761D000A1BD7B /* TravelDiscoveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelDiscoveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +87,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F941181027C7C3B200C9CEB0 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				F98DEC7927C761CF00A1BD7B /* DiscoverView.swift */,
+				F941181127C7C52C00C9CEB0 /* PopularDestinationsView.swift */,
+				F941181327C7C66000C9CEB0 /* PopularRestaurantsView.swift */,
+				F941181527C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift */,
+				F941181727C7C7DF00C9CEB0 /* TrendingCreatorsView.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		F941181927C7C83300C9CEB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F941181A27C7C85500C9CEB0 /* Destination.swift */,
+				F941181C27C7C87600C9CEB0 /* Restaurant.swift */,
+				F941181E27C7C88400C9CEB0 /* Creator.swift */,
+				F941182027C7C89B00C9CEB0 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F98DEC6B27C761CF00A1BD7B = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +133,9 @@
 		F98DEC7627C761CF00A1BD7B /* TravelDiscovery */ = {
 			isa = PBXGroup;
 			children = (
+				F941181927C7C83300C9CEB0 /* Models */,
+				F941181027C7C3B200C9CEB0 /* Discover */,
 				F98DEC7727C761CF00A1BD7B /* TravelDiscoveryApp.swift */,
-				F98DEC7927C761CF00A1BD7B /* ContentView.swift */,
 				F98DEC7B27C761D000A1BD7B /* Assets.xcassets */,
 				F98DEC7D27C761D000A1BD7B /* Preview Content */,
 			);
@@ -257,8 +297,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F98DEC7A27C761CF00A1BD7B /* ContentView.swift in Sources */,
+				F941181627C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift in Sources */,
+				F941182127C7C89B00C9CEB0 /* Category.swift in Sources */,
+				F941181227C7C52C00C9CEB0 /* PopularDestinationsView.swift in Sources */,
+				F941181F27C7C88400C9CEB0 /* Creator.swift in Sources */,
+				F941181827C7C7DF00C9CEB0 /* TrendingCreatorsView.swift in Sources */,
+				F98DEC7A27C761CF00A1BD7B /* DiscoverView.swift in Sources */,
+				F941181D27C7C87600C9CEB0 /* Restaurant.swift in Sources */,
 				F98DEC7827C761CF00A1BD7B /* TravelDiscoveryApp.swift in Sources */,
+				F941181427C7C66000C9CEB0 /* PopularRestaurantsView.swift in Sources */,
+				F941181B27C7C85500C9CEB0 /* Destination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
