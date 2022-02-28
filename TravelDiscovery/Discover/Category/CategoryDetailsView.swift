@@ -17,10 +17,7 @@ struct CategoryDetailsView: View {
         self.name = name
         self.vm = .init(name: name)
     }
-    
-//    @ObservedObject var vm = CategoryDetailsViewModel()
-//    let name: String
-    
+        
     var body: some View {
         ZStack {
             if vm.isLoading {
