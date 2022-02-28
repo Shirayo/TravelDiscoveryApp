@@ -14,7 +14,6 @@ struct PopularDestinationsView: View {
         .init(name: "Tokyo", country: "Japan", imageName: "tokyoCity"),
         .init(name: "preikestolen", country: "Norway", imageName: "preikestolen"),
         .init(name: "New York", country: "USA", imageName: "newYorkCity"),
-
     ]
     
     var body: some View {
@@ -30,29 +29,12 @@ struct PopularDestinationsView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(destinations, id: \.self) { destination in
-                        VStack(alignment: .leading, spacing: 0){
-                            
-                            Image(destination.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(4)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 8)
-                            
-                            Text(destination.name)
-                                .font(.system(size: 14, weight: .semibold))
-                                .padding(.horizontal, 12)
-                            Text(destination.country)
-                                .font(.system(size: 14, weight: .semibold))
-                                .padding(.horizontal, 12)
-                                .padding(.bottom, 8)
-                                .foregroundColor(.gray)
+                        NavigationLink {
+                            PopularDestinationView(destination: destination)
+                        } label: {
+                            PopularDestinationTile(destination: destination)
                         }
-                        .background(.white)
-                            .cornerRadius(5)
-                            .shadow(color: .gray, radius: 4, x: 0, y: 2)
-                            .padding(.bottom)
+
                     }
                 }.padding(.horizontal)
             }
@@ -60,9 +42,71 @@ struct PopularDestinationsView: View {
     }
 }
 
+struct PopularDestinationView: View {
+    
+    let destination: Destination
+    
+    var body: some View {
+        ScrollView {
+            Image(destination.imageName)
+                .resizable()
+                .scaledToFill()
+            VStack(alignment: .leading) {
+                Text(destination.name)
+                Text(destination.country)
+                
+                HStack {
+                    ForEach(0..<5) { el in
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                    }
+                }
+                .padding(.top, 4)
+
+                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+                
+                HStack { Spacer() }
+            }.padding(.horizontal)
+        }.navigationTitle(destination.name)
+            .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+
+struct PopularDestinationTile: View {
+    
+    let destination: Destination
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0){
+            
+            Image(destination.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 100, height: 100)
+                .cornerRadius(4)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 8)
+            
+            Text(destination.name)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(Color(.label))
+                .padding(.horizontal, 12)
+            Text(destination.country)
+                .font(.system(size: 14, weight: .semibold))
+                .padding(.horizontal, 12)
+                .padding(.bottom, 8)
+                .foregroundColor(.gray)
+        }
+        .asTile()
+    }
+}
+
 struct PopularDestinationsView_Previews : PreviewProvider {
     static var previews: some View {
-        PopularDestinationsView()
+        NavigationView {
+            PopularDestinationView(destination: .init(name: "paris", country: "france", imageName: "parisCity"))
+        }
             .previewDevice("iPhone 13 Pro")
     }
 }
