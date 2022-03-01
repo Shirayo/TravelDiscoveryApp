@@ -9,10 +9,7 @@ import SwiftUI
 import MapKit
 
 struct PopularDestinationsView: View {
-    //    48.85239723212344, 2.3401540989994407
-//    35.67182352377911, 139.74923708313193
-//    58.986367087576895, 6.190324091555475
-//    40.691931112588044, -74.02524836847729
+
     let destinations: [Destination] = [
         .init(name: "Paris", country: "France", imageName: "parisCity", latitude: 48.85239723212344, longitude: 2.3401540989994407),
         .init(name: "Tokyo", country: "Japan", imageName: "tokyoCity", latitude: 35.67182352377911, longitude: 139.74923708313193),
@@ -34,7 +31,8 @@ struct PopularDestinationsView: View {
                 HStack(spacing: 12) {
                     ForEach(destinations, id: \.self) { destination in
                         NavigationLink {
-                            PopularDestinationView(destination: destination)
+                            NavigationLazyView(PopularDestinationDetailsView(destination: destination))
+//                            PopularDestinationDetailsView(destination: destination)
                         } label: {
                             PopularDestinationTile(destination: destination)
                         }
@@ -46,33 +44,65 @@ struct PopularDestinationsView: View {
     }
 }
 
-struct PopularDestinationView: View {
+struct DestinationsDetails: Decodable {
+    let photos: [String]
+    let name, country, description: String
+    let latitude, longitude: Double
+    
+}
+
+class DestinationDetailViewModel: ObservableObject {
+    @Published var isLoading = true
+    @Published var destinationDetails: DestinationsDetails?
+    init(name: String) {
+        print(name.lowercased())
+        guard let url = URL(string: "https://travel.letsbuildthatapp.com/travel_discovery/destination?name=\(name.lowercased())".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data {
+                    do {
+                        self.destinationDetails = try JSONDecoder().decode(DestinationsDetails.self, from: data)
+                    } catch {
+                        
+                    }
+                }
+            }
+        }.resume()
+    }
+}
+
+struct PopularDestinationDetailsView: View {
+    
+    @ObservedObject var vm: DestinationDetailViewModel
     
     let destination: Destination
     let attractions: [Attraction] = [
-        .init(name: "Eiffel Tower", latitude: 48.85770271275662, longitude: 2.29587771437089),
-        .init(name: "Luvr", latitude: 48.85994916746439, longitude: 2.3336456130850034),
+        .init(name: "Eiffel Tower", imageName: "eiffel", latitude: 48.85770271275662, longitude: 2.29587771437089),
+        .init(name: "Luvr", imageName: "luvr", latitude: 48.85994916746439, longitude: 2.3336456130850034),
     ]
-//    48.85770271275662, 2.29587771437089
-//    48.85994916746439, 2.3336456130850034
+    
     @State var region: MKCoordinateRegion
     @State var isShowingAttractions: Bool = true
     
     
     init(destination: Destination) {
         self.destination = destination
-        self._region = State(initialValue: MKCoordinateRegion(center: .init(latitude: destination.latitude, longitude: destination.longitude), span: .init(latitudeDelta: 0.1, longitudeDelta: 0.1))) 
+        self._region = State(initialValue: MKCoordinateRegion(center: .init(latitude: destination.latitude, longitude: destination.longitude), span: .init(latitudeDelta: 0.07, longitudeDelta: 0.07)))
+        self.vm = .init(name: destination.name)
     }
+    
     
     var body: some View {
         ScrollView {
-            Image(destination.imageName)
-                .resizable()
-                .scaledToFill()
+            if let photos = vm.destinationDetails?.photos {
+                DestinationHeaderContainer(imageUrlStrings: photos)
+                    .frame(height: 300)
+            }
+            
             VStack(alignment: .leading) {
-                Text(destination.name)
+                Text(vm.destinationDetails?.name ?? "name")
                     .font(.system(size: 24, weight: .semibold))
-                Text(destination.country)
+                Text(vm.destinationDetails?.country ?? "country")
                     .font(.system(size: 20))
                 
                 HStack {
@@ -83,7 +113,7 @@ struct PopularDestinationView: View {
                 }
                 .padding(.vertical, 2)
 
-                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.")
+                Text(vm.destinationDetails?.description ?? "")
                     .font(.system(size: 18, weight: .medium))
                 
                 HStack { Spacer() }
@@ -104,7 +134,10 @@ struct PopularDestinationView: View {
                 .padding(.horizontal)
             
             Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? attractions : []) { attraction in
-                MapMarker(coordinate: .init(latitude: attraction.latitude, longitude: attraction.longitude), tint: .red)
+                
+                MapAnnotation(coordinate: .init(latitude: attraction.latitude, longitude: attraction.longitude)) {
+                    CustomMapAnnotation(attraction: attraction)
+                }
             }.frame(height: 300)
             
         }.navigationTitle(destination.name)
@@ -113,10 +146,31 @@ struct PopularDestinationView: View {
         
 }
 
+struct CustomMapAnnotation: View {
+    
+    let attraction: Attraction
+    
+    var body: some View {
+        VStack {
+            Image(attraction.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 80, height: 60, alignment: .center)
+                .cornerRadius(6)
+            Text(attraction.name)
+                .padding(.horizontal, 6)
+                .padding(.vertical, 4)
+                .background(LinearGradient(colors: [.orange, .red], startPoint: .leading, endPoint: .trailing))
+                .foregroundColor(.white)
+                .cornerRadius(6)
+        }
+    }
+}
+
 struct Attraction: Identifiable {
     let id = UUID().uuidString
     
-    let name: String
+    let name, imageName: String
     let latitude, longitude: Double
 }
 
@@ -152,7 +206,7 @@ struct PopularDestinationTile: View {
 struct PopularDestinationsView_Previews : PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PopularDestinationView(destination: .init(name: "Paris", country: "France", imageName: "parisCity", latitude: 48.85239723212344, longitude: 2.3401540989994407))
+            PopularDestinationDetailsView(destination: .init(name: "Paris", country: "France", imageName: "parisCity", latitude: 48.85239723212344, longitude: 2.3401540989994407))
         }
             .previewDevice("iPhone 13 Pro")
     }
