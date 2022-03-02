@@ -28,6 +28,14 @@
 		F98DEC8927C761D000A1BD7B /* TravelDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC8827C761D000A1BD7B /* TravelDiscoveryTests.swift */; };
 		F98DEC9327C761D000A1BD7B /* TravelDiscoveryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC9227C761D000A1BD7B /* TravelDiscoveryUITests.swift */; };
 		F98DEC9527C761D000A1BD7B /* TravelDiscoveryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DEC9427C761D000A1BD7B /* TravelDiscoveryUITestsLaunchTests.swift */; };
+		F9A92D3827CE17E6001600D5 /* PopularDestinationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D3727CE17E5001600D5 /* PopularDestinationDetailsView.swift */; };
+		F9A92D3B27CE1853001600D5 /* DestinationDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D3A27CE1853001600D5 /* DestinationDetailsViewModel.swift */; };
+		F9A92D3D27CE187F001600D5 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D3C27CE187F001600D5 /* Attraction.swift */; };
+		F9A92D3F27CE1A41001600D5 /* CategoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D3E27CE1A41001600D5 /* CategoryDetailsViewModel.swift */; };
+		F9A92D4127CE1AC1001600D5 /* DestinationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D4027CE1AC1001600D5 /* DestinationDetails.swift */; };
+		F9A92D4327CE1AE3001600D5 /* CustomMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D4227CE1AE3001600D5 /* CustomMapAnnotation.swift */; };
+		F9A92D4927CE1FA0001600D5 /* RestaurantDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D4827CE1FA0001600D5 /* RestaurantDetailsView.swift */; };
+		F9A92D4C27CE607D001600D5 /* AllPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A92D4B27CE607D001600D5 /* AllPhotosView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +79,14 @@
 		F98DEC8E27C761D000A1BD7B /* TravelDiscoveryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelDiscoveryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F98DEC9227C761D000A1BD7B /* TravelDiscoveryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDiscoveryUITests.swift; sourceTree = "<group>"; };
 		F98DEC9427C761D000A1BD7B /* TravelDiscoveryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDiscoveryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F9A92D3727CE17E5001600D5 /* PopularDestinationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestinationDetailsView.swift; sourceTree = "<group>"; };
+		F9A92D3A27CE1853001600D5 /* DestinationDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailsViewModel.swift; sourceTree = "<group>"; };
+		F9A92D3C27CE187F001600D5 /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
+		F9A92D3E27CE1A41001600D5 /* CategoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsViewModel.swift; sourceTree = "<group>"; };
+		F9A92D4027CE1AC1001600D5 /* DestinationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetails.swift; sourceTree = "<group>"; };
+		F9A92D4227CE1AE3001600D5 /* CustomMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotation.swift; sourceTree = "<group>"; };
+		F9A92D4827CE1FA0001600D5 /* RestaurantDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsView.swift; sourceTree = "<group>"; };
+		F9A92D4B27CE607D001600D5 /* AllPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +118,13 @@
 		F941181027C7C3B200C9CEB0 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				F989447327CCFD7F00CF3761 /* Destination */,
 				F941182827C8FB7E00C9CEB0 /* Category */,
+				F989447327CCFD7F00CF3761 /* Destination */,
+				F9A92D4427CE1F57001600D5 /* Restaurant */,
 				F98DEC7927C761CF00A1BD7B /* DiscoverView.swift */,
+				F941181527C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift */,
 				F941181127C7C52C00C9CEB0 /* PopularDestinationsView.swift */,
 				F941181327C7C66000C9CEB0 /* PopularRestaurantsView.swift */,
-				F941181527C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift */,
 				F941181727C7C7DF00C9CEB0 /* TrendingCreatorsView.swift */,
 			);
 			path = Discover;
@@ -121,6 +138,8 @@
 				F941181E27C7C88400C9CEB0 /* Creator.swift */,
 				F941182027C7C89B00C9CEB0 /* Category.swift */,
 				F941182D27C8FD3300C9CEB0 /* Place.swift */,
+				F9A92D3C27CE187F001600D5 /* Attraction.swift */,
+				F9A92D4027CE1AC1001600D5 /* DestinationDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,6 +149,7 @@
 			children = (
 				F941182327C8C44800C9CEB0 /* TileModifier.swift */,
 				F941182B27C8FCE800C9CEB0 /* ActivityIndicatorView.swift */,
+				F9A92D4227CE1AE3001600D5 /* CustomMapAnnotation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -146,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F989447527CCFD9F00CF3761 /* DestinationHeaderContainer.swift */,
+				F9A92D3727CE17E5001600D5 /* PopularDestinationDetailsView.swift */,
 			);
 			path = Destination;
 			sourceTree = "<group>";
@@ -173,6 +194,7 @@
 		F98DEC7627C761CF00A1BD7B /* TravelDiscovery */ = {
 			isa = PBXGroup;
 			children = (
+				F9A92D3927CE1833001600D5 /* View Models */,
 				F941182227C8C43700C9CEB0 /* Utils */,
 				F941181927C7C83300C9CEB0 /* Models */,
 				F941181027C7C3B200C9CEB0 /* Discover */,
@@ -206,6 +228,32 @@
 				F98DEC9427C761D000A1BD7B /* TravelDiscoveryUITestsLaunchTests.swift */,
 			);
 			path = TravelDiscoveryUITests;
+			sourceTree = "<group>";
+		};
+		F9A92D3927CE1833001600D5 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				F9A92D3A27CE1853001600D5 /* DestinationDetailsViewModel.swift */,
+				F9A92D3E27CE1A41001600D5 /* CategoryDetailsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		F9A92D4427CE1F57001600D5 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				F9A92D4A27CE606A001600D5 /* All Photos */,
+				F9A92D4827CE1FA0001600D5 /* RestaurantDetailsView.swift */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		F9A92D4A27CE606A001600D5 /* All Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F9A92D4B27CE607D001600D5 /* AllPhotosView.swift */,
+			);
+			path = "All Photos";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,11 +394,19 @@
 			files = (
 				F941181627C7C7BB00C9CEB0 /* DiscoverCategoriesView.swift in Sources */,
 				F941182427C8C44800C9CEB0 /* TileModifier.swift in Sources */,
+				F9A92D3B27CE1853001600D5 /* DestinationDetailsViewModel.swift in Sources */,
+				F9A92D4327CE1AE3001600D5 /* CustomMapAnnotation.swift in Sources */,
 				F941182127C7C89B00C9CEB0 /* Category.swift in Sources */,
+				F9A92D3D27CE187F001600D5 /* Attraction.swift in Sources */,
 				F941181227C7C52C00C9CEB0 /* PopularDestinationsView.swift in Sources */,
+				F9A92D3827CE17E6001600D5 /* PopularDestinationDetailsView.swift in Sources */,
+				F9A92D4C27CE607D001600D5 /* AllPhotosView.swift in Sources */,
 				F941181F27C7C88400C9CEB0 /* Creator.swift in Sources */,
 				F989447627CCFD9F00CF3761 /* DestinationHeaderContainer.swift in Sources */,
 				F941182E27C8FD3300C9CEB0 /* Place.swift in Sources */,
+				F9A92D3F27CE1A41001600D5 /* CategoryDetailsViewModel.swift in Sources */,
+				F9A92D4927CE1FA0001600D5 /* RestaurantDetailsView.swift in Sources */,
+				F9A92D4127CE1AC1001600D5 /* DestinationDetails.swift in Sources */,
 				F941181827C7C7DF00C9CEB0 /* TrendingCreatorsView.swift in Sources */,
 				F98DEC7A27C761CF00A1BD7B /* DiscoverView.swift in Sources */,
 				F941181D27C7C87600C9CEB0 /* Restaurant.swift in Sources */,
