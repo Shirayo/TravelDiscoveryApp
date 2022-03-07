@@ -72,6 +72,7 @@ struct PopularRestaurantsTile: View {
                 }
                 Text("Tokyo, Japan")
             }.font(.system(size: 12, weight: .semibold))
+                .foregroundColor(.black)
                 .padding(.leading, 8)
             
             Spacer()

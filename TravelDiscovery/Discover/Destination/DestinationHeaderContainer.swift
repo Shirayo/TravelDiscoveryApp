@@ -11,9 +11,10 @@ import Kingfisher
 struct DestinationHeaderContainer: UIViewControllerRepresentable {
     
     let imageUrlStrings: [String]
+    let chosenPhotoIndex: Int
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let pvc = CustomPageViewController(imageUrlStrings: imageUrlStrings)
+        let pvc = CustomPageViewController(imageUrlStrings: imageUrlStrings, chosenPhotoIndex: chosenPhotoIndex)
         return pvc
     }
     
@@ -39,17 +40,23 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
     }
     
     var controllers: [UIViewController] = []
+    var chosenPhotoIndex: Int
     
-    
-    init(imageUrlStrings: [String]) {
+    init(imageUrlStrings: [String], chosenPhotoIndex: Int) {
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.systemGray
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.red
-        
+        self.chosenPhotoIndex = chosenPhotoIndex
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        
         controllers = imageUrlStrings.map({ imageName in
             if let url = URL(string: imageName) {
-                let vc = UIHostingController(rootView: KFImage(url).resizable())
+                let vc = UIHostingController(rootView:
+                    ZStack {
+                    Color.black
+                    KFImage(url)
+                    .resizable()
+                    .scaledToFit()
+                })
+                                               
                 vc.view.clipsToBounds = true
                 return vc
             } else {
@@ -57,8 +64,8 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
                 return vc
             }
         })
-        if let first = controllers.first {
-            setViewControllers([first], direction: .forward, animated: true, completion: nil)
+        if chosenPhotoIndex < controllers.count {
+            setViewControllers([controllers[chosenPhotoIndex]], direction: .forward, animated: true, completion: nil)
         }
         
         self.dataSource = self
@@ -70,7 +77,7 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        0
+        self.chosenPhotoIndex
     }
     
     required init?(coder: NSCoder) {
@@ -90,7 +97,7 @@ struct DestinationHeaderContainer_Previews: PreviewProvider {
         ]
     
     static var previews: some View {
-        DestinationHeaderContainer(imageUrlStrings: imageUrlsStrings)
+        DestinationHeaderContainer(imageUrlStrings: imageUrlsStrings, chosenPhotoIndex: 0)
             .frame(height: 300)
     }
 }

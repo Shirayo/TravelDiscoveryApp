@@ -9,4 +9,5 @@ import Foundation
 
 struct Creator: Hashable {
     let fullName, imageName: String
+    let id: Int
 }
